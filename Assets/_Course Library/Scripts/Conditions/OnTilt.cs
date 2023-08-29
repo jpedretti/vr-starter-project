@@ -33,7 +33,7 @@ public class OnTilt : MonoBehaviour
 
         bool thresholdCheck = similarity >= threshold;
 
-        if (withinThreshold != thresholdCheck)
+        if (withinThreshold != thresholdCheck) 
         {
             withinThreshold = thresholdCheck;
 

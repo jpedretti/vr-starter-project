@@ -25,9 +25,16 @@ public class PrintPhoto : MonoBehaviour
 
     public void Print(float printTime)
     {
-        _printTime = printTime;
-        _photoSpeed = _totalToMove / _printTime;
-        StartCoroutine(PrintPhotoTimer(GetComponent<XRGrabInteractable>()));
+        if (printTime > 0 && (!_isPrinted && !_isPrinting))
+        {
+            _printTime = printTime;
+            _photoSpeed = _totalToMove / _printTime;
+            StartCoroutine(PrintPhotoTimer(GetComponent<XRGrabInteractable>()));
+        }
+        else
+        {
+            Debug.LogError($"{nameof(printTime)} should not be <= 0");
+        }
     }
 
     private IEnumerator PrintPhotoTimer(XRGrabInteractable grabInteractable)
