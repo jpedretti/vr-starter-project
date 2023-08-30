@@ -26,10 +26,9 @@ public class ShowMessageFromList : MonoBehaviour
 
     public void NextMessage()
     {
-        int newIndex = ++index % messages.Count;
-
-        if (newIndex < index)
+        if (++index >= messages.Count)
         {
+            index = 0;
             OnComplete.Invoke();
         }
         else
@@ -40,7 +39,7 @@ public class ShowMessageFromList : MonoBehaviour
 
     public void PreviousMessage()
     {
-        index = --index % messages.Count;
+        index = (index - 1) % messages.Count;
         ShowMessage();
     }
 
