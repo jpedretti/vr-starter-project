@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Fire
   - Film
+  - Trail
+  - Shape
+  - SavedTrail
   layers:
   - Default
   - TransparentFX

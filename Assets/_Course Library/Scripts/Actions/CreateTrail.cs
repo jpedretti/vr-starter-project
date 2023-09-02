@@ -6,7 +6,10 @@
 
 public class CreateTrail : MonoBehaviour
 {
-    public GameObject trailPrefab = null;
+    [SerializeField] private GameObject trailPrefab = null;
+    [SerializeField] private GameObject parentToFinishedTrails;
+    [SerializeField] private Camera _camera;
+    [SerializeField] private GameObject _trailMeshPreFab;
 
     private float width = 0.05f;
     private Color color = Color.white;
@@ -34,9 +37,34 @@ public class CreateTrail : MonoBehaviour
     {
         if (currentTrail)
         {
-            currentTrail.transform.parent = null;
+            Mesh mesh = CreateMeshFromTrail();
+            CreateTrailCopyWithMesh(mesh);
+
+            Destroy(currentTrail);
             currentTrail = null;
         }
+    }
+
+    private void CreateTrailCopyWithMesh(Mesh mesh)
+    {
+        Instantiate(_trailMeshPreFab).Apply(trailMesh =>
+        {
+            trailMesh.GetComponent<MeshFilter>().mesh = mesh;
+            trailMesh.transform.SetParent(parentToFinishedTrails.transform, true);
+            trailMesh.tag = "Trail";
+        });
+    }
+
+    private Mesh CreateMeshFromTrail()
+    {
+        Mesh mesh = new();
+        currentTrail.GetComponent<TrailRenderer>().Apply(rend =>
+        {
+            rend.emitting = false;
+            rend.BakeMesh(mesh, _camera);
+
+        });
+        return mesh;
     }
 
     public void SetWidth(float value)
