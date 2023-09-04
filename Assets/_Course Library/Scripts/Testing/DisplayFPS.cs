@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DisplayFPS : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class DisplayFPS : MonoBehaviour
 
     private void Awake()
     {
+        transform.GetChild(0).gameObject.SetActive(true);
         textOutput = GetComponentInChildren<TextMeshProUGUI>();
     }
 
