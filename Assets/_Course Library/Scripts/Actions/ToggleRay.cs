@@ -14,14 +14,14 @@ public class ToggleRay : MonoBehaviour
 
     [Tooltip("The direct interactor that's switched to")]
     public XRDirectInteractor directInteractor = null;
+    [SerializeField] private bool isSwitched = false;
 
     private XRRayInteractor rayInteractor = null;
-    private bool isSwitched = false;
 
     private void Awake()
     {
         rayInteractor = GetComponent<XRRayInteractor>();
-        SwitchInteractors(false);
+        SwitchInteractors(isSwitched);
     }
 
     public void ActivateRay()
