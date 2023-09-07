@@ -3407,6 +3407,8 @@ MonoBehaviour:
       m_Image: {fileID: 0}
     - m_Text: Paint
       m_Image: {fileID: 0}
+    - m_Text: Training
+      m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
