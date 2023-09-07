@@ -18761,6 +18761,7 @@ GameObject:
   - component: {fileID: 2093529276241526588}
   - component: {fileID: 2093529276241526587}
   - component: {fileID: 2093529276241526590}
+  - component: {fileID: 2093529276241526591}
   m_Layer: 0
   m_Name: Magnet
   m_TagString: Untagged
@@ -18857,6 +18858,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2093529276241526591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2093529276241526586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0efd09f44c334cc45abf43175b085d56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  otherMaterial: {fileID: 2100000, guid: 0c589e185d0c76a48ac19e74ae0665c2, type: 2}
 --- !u!4 &2178058244917842007
 Transform:
   m_ObjectHideFlags: 0
@@ -23729,6 +23743,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2093529276241526591}
+        m_TargetAssemblyTypeName: ChangeMaterial, Assembly-CSharp
+        m_MethodName: SetOtherMaterial
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnLeverDeactivate:
     m_PersistentCalls:
       m_Calls:
@@ -23752,6 +23778,18 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2093529276241526591}
+        m_TargetAssemblyTypeName: ChangeMaterial, Assembly-CSharp
+        m_MethodName: SetOriginalMaterial
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
